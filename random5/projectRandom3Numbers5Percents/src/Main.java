@@ -7,6 +7,7 @@ public class Main {
     static int percentByDefault = 5;
     static int cycleByDefault = 100;
     static int maxRangeNumber = 10;
+
     static int generateRandomNumber(int range) {
         double number = Math.random() * range;
         long numberRounded = Math.round(number);
@@ -41,6 +42,7 @@ public class Main {
             System.out.print("index " + i + " - ");
             printThreeDifferentRandomNumbers(maxRangeNumber);
         }
+        // exclude the last step for the last cycle
         if (endIndex != cycleByDefault) {
             System.out.print("index " + endIndex + " - ");
             printThreeIdenticalRandomNumbers(maxRangeNumber);
@@ -69,7 +71,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // define random winning indexes according to percents by default
         int[] winnerRandomIndexes = generateWinnerRandomIndexes(percentByDefault, cycleByDefault);
+        // generate combinations of 3 numbers according to winning percents
         for (int i = 0; i < percentByDefault; i++) {
             if (i == 0) {
                 runCyclePortion(i, winnerRandomIndexes[i]);
