@@ -7,6 +7,7 @@ public class Main {
     static String messageCongratulations = "Congratulations, %s!";
     static String messageSmallNumber = "Your number is too small. Please, try again.";
     static String messageBigNumber = "Your number is too big. Please, try again.";
+    static String messageError = "Your number is not integer. Error";
     static int range = 101;
 
     public static String readFromConsole() {
@@ -22,10 +23,36 @@ public class Main {
         System.out.printf(message, parameter);
     }
 
-    static int generateRandomNumber(int range) {
+    public static int generateRandomNumber(int range) {
         double number = Math.random() * range;
         long numberRounded = Math.round(number);
         return (int) numberRounded;
+    }
+
+    public static boolean isInteger(String s) {
+        return isInteger(s,10);
+    }
+
+    public static boolean isInteger(String s, int radix) {
+        if (s.isEmpty()) return false;
+        for (int i = 0; i < s.length(); i++) {
+            if (i == 0 && s.charAt(i) == '-') {
+                if (s.length() == 1) return false;
+                else continue;
+            }
+            if (Character.digit(s.charAt(i),radix) < 0) return false;
+        }
+        return true;
+    }
+
+    public static int getNumberFromUser() {
+        String text = readFromConsole();
+        if (isInteger(text)) {
+            return Integer.parseInt(text);
+        } else {
+            printMessage(messageError);
+            return -1;
+        }
     }
 
     public static void main(String[] args) {
@@ -35,15 +62,16 @@ public class Main {
         int number = generateRandomNumber(range);
         while (true) {
             printMessage(messageAboutNumber);
-            int userNumber = Integer.parseInt(readFromConsole());
-            if (userNumber == number) {
-                printMessageWithParameter(messageCongratulations, name); break;
-            } else if (userNumber < number) {
-                printMessage(messageSmallNumber);
-            } else {
-                printMessage(messageBigNumber);
+            int userNumber = getNumberFromUser();
+            if (userNumber != -1) {
+                if (userNumber == number) {
+                    printMessageWithParameter(messageCongratulations, name); break;
+                } else if (userNumber < number) {
+                    printMessage(messageSmallNumber);
+                } else {
+                    printMessage(messageBigNumber);
+                }
             }
         }
-
     }
 }
