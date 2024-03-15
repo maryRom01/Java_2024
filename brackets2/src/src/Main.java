@@ -10,7 +10,7 @@ public class Main {
             char c = input.charAt(i);
             switch (c) {
                 case '{': openCurly++; break;
-                case '}': if (openCurly < 1) return false; openCurly--; break;
+                case '}': if (openCurly < 1) return false; openCurly--;break;
                 case '[': openSquare++; break;
                 case ']': if (openSquare < 1) return false; openSquare--; break;
                 case '<': openDiamond++; break;
@@ -36,9 +36,12 @@ public class Main {
                   [({})><{}]
                 }
                     """;
+
+        // do we need to consider the correct syntax of the function or only braces?
+        // function() { ... } - so the first and the last curly braces should be excluded
         String inputInvalid2 = """
                 public void soSomething(double x) {
-                  [(}{)><{}]
+                  [(}{)[]{}]
                 }
                     """;
         String inputInvalid3 = """
@@ -46,14 +49,21 @@ public class Main {
                   [({<{
                 }
                     """;
+        String inputInvalid4 = """
+                public void soSomething(double x) {
+                  [(]])><{}]
+                }
+                    """;
         boolean result1 = compile(inputValid);  // true
         boolean result2 = compile(inputInvalid);// false
-        boolean result3 = compile(inputInvalid2);// false
+        boolean result3 = compile(inputInvalid2);// ?
         boolean result4 = compile(inputInvalid3);// false
+        boolean result5 = compile(inputInvalid4);// false
 
         System.out.println(result1);
         System.out.println(result2);
         System.out.println(result3);
         System.out.println(result4);
+        System.out.println(result5);
     }
 }
