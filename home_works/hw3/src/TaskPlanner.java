@@ -41,7 +41,7 @@ public class TaskPlanner {
         System.out.printf("Your tasks for %s: %s \n", weekday[weekdayImdex], schedule[weekdayImdex][1]);
     }
     public static void main(String[] args) {
-        String schedule[][] = getSchedule();
+        String[][] schedule = getSchedule();
         boolean flag = true;
         while (flag) {
             print(questionWhatIsAWeekday);
