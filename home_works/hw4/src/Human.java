@@ -9,13 +9,24 @@ public class Human {
     private Human mother;
     private Human father;
     private String[][] schedule;
+    private Family family;
 
-    public Human() {}
+    public Human() {
+        this.name = "Unknown";
+        this.surname = "Unknown";
+        this.year = 0;
+        this.iq = 0;
+        this.pet = new Pet();
+        this.schedule = new String[1][1];
+    }
 
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
+        this.iq = 0;
+        this.pet = new Pet();
+        this.schedule = new String[1][1];
     }
 
     public Human(String name, String surname, int year, Human mother, Human father) {
@@ -24,6 +35,9 @@ public class Human {
         this.year = year;
         this.mother = mother;
         this.father = father;
+        this.iq = 0;
+        this.pet = new Pet();
+        this.schedule = new String[1][1];
     }
 
     public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
@@ -34,7 +48,12 @@ public class Human {
         this.pet = pet;
         this.mother = mother;
         this.father = father;
-        this.schedule = schedule;
+        if (schedule != null) {
+            this.schedule = schedule;
+        } else {
+            this.schedule = new String[][]{{},{}};
+        }
+
     }
 
     public String getName() {
@@ -101,26 +120,47 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
     public void greetPet() {
         System.out.printf("Привіт, %s\n", pet.getNickname());
     }
 
     public void describePet() {
         String trickiness;
-        if (pet.getTrickLevel() <= 50) {
-            trickiness = "майже не хитрий";
-        } else trickiness = "дуже хитрий";
-        System.out.printf("У мене є %s, йому %s років, він %s\n", pet.getSpecies(), pet.getAge(), trickiness);
+        if (pet != null) {
+            if (pet.getTrickLevel() <= 50) {
+                trickiness = "майже не хитрий";
+            } else trickiness = "дуже хитрий";
+            System.out.printf("У мене є %s, йому %s років, він %s\n", pet.getSpecies(), pet.getAge(), trickiness);
+        } else System.out.println("No pets");
     }
 
     public void print() {
-        System.out.println(this.toString());
+        System.out.println(this);
+    }
+
+    public void printSchedule() {
+        System.out.print("Schedule is: ");
+        if (this.getSchedule()[0].length == 0) {
+            System.out.println("No schedule");
+        } else {
+            for (int i = 0; i < this.schedule.length; i++) {
+                System.out.printf("%s - %s; ", this.schedule[i][0], this.schedule[i][1]);
+            }
+        }
     }
 
     @Override
     public String toString() {
         final String unknown = "Unknown";
-        String motherName, motherSurname, fatherName, fatherSurname;
+        String motherName, motherSurname, fatherName, fatherSurname, pet;
         if (this.mother == null) {
             motherName = unknown;
             motherSurname = unknown;
@@ -135,8 +175,13 @@ public class Human {
             fatherName = this.father.name;
             fatherSurname = this.father.surname;
         }
-        return String.format("Human{name='%s', surname='%s', year=%s, iq=%s, mother=%s %s, father=%s %s, " +
-                "pet=%s",
-                this.name, this.surname, this.year, this.iq, motherName, motherSurname, fatherName, fatherSurname, this.pet.toString());
+        if (this.pet == null) {
+            pet = unknown;
+        } else {
+            pet = this.pet.toString();
+        }
+        return String.format("Human{name='%s', surname='%s', year=%s, iq=%s, mother='%s %s', father='%s %s' " +
+                "pet=%s}",
+                this.name, this.surname, this.year, this.iq, motherName, motherSurname, fatherName, fatherSurname, pet);
     }
 }

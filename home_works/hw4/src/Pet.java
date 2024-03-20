@@ -7,11 +7,18 @@ public class Pet {
     private int trickLevel;
     private String[] habits;
 
-    public Pet() {}
+    public Pet() {
+        this.species = "Unknown";
+        this.nickname = "Unknown";
+        this.age = 0;
+        this.trickLevel = 0;
+    }
 
     public Pet(String species, String nickname) {
         this.species = species;
         this.nickname = nickname;
+        this.age = 0;
+        this.trickLevel = 0;
     }
 
     public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
@@ -74,11 +81,27 @@ public class Pet {
     }
 
     public void print() {
-        System.out.println(this.toString());
+        System.out.println(this);
     }
 
     @Override
     public String toString() {
-        return String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}", this.species, this.nickname, this.age, this.trickLevel, Arrays.toString(this.habits));
+        String habits = "Unknown";
+        if (this.habits != null) {
+            habits = Arrays.toString(this.habits);
+        }
+        return String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}", this.species, this.nickname, this.age, this.trickLevel, habits);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Pet petObject = (Pet) obj;
+        return this.species.equals(petObject.species);
     }
 }
