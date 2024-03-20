@@ -1,11 +1,18 @@
 import java.util.Arrays;
 
 public class Pet {
-    String species;
-    String nickname;
-    int age;
-    int trickLevel;
-    String[] habits;
+    private String species;
+    private String nickname;
+    private int age;
+    private int trickLevel;
+    private String[] habits;
+
+    public Pet() {}
+
+    public Pet(String species, String nickname) {
+        this.species = species;
+        this.nickname = nickname;
+    }
 
     public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
@@ -66,10 +73,12 @@ public class Pet {
         System.out.println("Потрібно добре замести сліди...\n");
     }
 
+    public void print() {
+        System.out.println(this.toString());
+    }
+
     @Override
     public String toString() {
-        String result = String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}", this.species, this.nickname, this.age, this.trickLevel, Arrays.toString(this.habits));
-        System.out.println(result);
-        return result;
+        return String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}", this.species, this.nickname, this.age, this.trickLevel, Arrays.toString(this.habits));
     }
 }
