@@ -38,7 +38,7 @@ public class TaskPlanner {
     }
 
     public static void printTask(String[][] schedule, int weekdayImdex) {
-        System.out.printf("Your tasks for %s: %s \n", weekday[weekdayImdex], schedule[weekdayImdex][1]);
+        System.out.printf("Your tasks for %s: %s \n", weekday[weekdayImdex].toLowerCase(), schedule[weekdayImdex][1]);
     }
     public static void main(String[] args) {
         String[][] schedule = getSchedule();
