@@ -1,10 +1,7 @@
-import humans.Family;
-import humans.Human;
-import humans.Man;
-import humans.Woman;
-import pets.Fish;
-import pets.Pet;
-import pets.RoboCat;
+package hw6.src.main.java;
+
+import hw6.src.main.java.pets.*;
+import hw6.src.main.java.humans.*;
 
 import java.util.Arrays;
 

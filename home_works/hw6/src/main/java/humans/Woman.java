@@ -1,6 +1,4 @@
-package humans;
-
-import java.util.BitSet;
+package hw6.src.main.java.humans;
 
 public final class Woman extends Human {
     private String name;

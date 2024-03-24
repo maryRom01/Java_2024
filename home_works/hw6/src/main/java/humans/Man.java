@@ -1,8 +1,4 @@
-package humans;
-
-import pets.Pet;
-
-import java.util.BitSet;
+package hw6.src.main.java.humans;
 
 public final class Man extends Human {
     private String name;

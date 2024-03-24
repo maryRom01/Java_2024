@@ -1,11 +1,10 @@
-package humans;
+package hw6.src.main.java.humans;
 
-import pets.Pet;
+import hw6.src.main.java.pets.Pet;
 import pets.Species;
 
 import java.time.Year;
 import java.util.Arrays;
-import humans.WomanName;
 
 public class Family implements HumanCreator {
     private Human mother;
@@ -119,8 +118,8 @@ public class Family implements HumanCreator {
         int randomNameNumber = (int) Math.round(Math.random() * 4);
         String name;
         switch (sex) {
-            case 0: name = String.valueOf(WomanName.values()[randomNameNumber]); break;
-            case 1: name = String.valueOf(ManName.values()[randomNameNumber]); break;
+            case 0: name = String.valueOf(humans.WomanName.values()[randomNameNumber]); break;
+            case 1: name = String.valueOf(humans.ManName.values()[randomNameNumber]); break;
             default: name = "Unknown";
         }
         return name;

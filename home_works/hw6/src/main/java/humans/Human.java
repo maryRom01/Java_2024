@@ -1,6 +1,4 @@
-package humans;
-
-import pets.Pet;
+package hw6.src.main.java.humans;
 
 public abstract class Human {
     private String name;

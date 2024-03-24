@@ -1,4 +1,6 @@
-package pets;
+package hw6.src.main.java.pets;
+
+import pets.Species;
 
 import java.util.Arrays;
 
@@ -37,12 +39,6 @@ public abstract class Pet {
         if (species != null) return species;
         else return null;
     }
-
-    public void setSpecies(Species species) {
-        this.species = species;
-    }
-
-    public abstract void setSpecies(pets.Species species);
 
     public String getNickname() {
         return nickname;
