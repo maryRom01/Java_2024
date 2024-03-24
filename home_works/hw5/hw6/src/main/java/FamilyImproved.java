@@ -19,8 +19,13 @@ public class FamilyImproved {
         Human man = new Man("Raimond", "Bronx", 1998, 150, new String[1][1]);
         Human woman = new Woman("Rubi", "Bronx", 1999, 180, new String[1][1]);
         Family family = new Family(woman, man);
-        Human child = family.bornChild();
-        System.out.println(child);
+
+        Human child1 = family.bornChild();
+        System.out.println(child1);
+        System.out.println(Arrays.toString(family.getChildren()));
+
+        Human child2 = family.bornChild();
+        System.out.println(child2);
         System.out.println(Arrays.toString(family.getChildren()));
     }
 }
