@@ -1,35 +1,37 @@
-package pets;
+package hw6.src.main.java.pets;
 
-public class Dog extends Pet implements Foulable {
-    private Species species;
+import pets.Species;
+
+public class RoboCat extends pets.Pet {
+    private pets.Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
 
     {
-        this.species = Species.DOG;
+        this.species = pets.Species.ROBOCAT;
     }
 
-    public Dog() {
+    public RoboCat() {
         super();
     }
 
-    public Dog(String nickname) {
+    public RoboCat(String nickname) {
         super(nickname);
     }
 
-    public Dog(String nickname, int age, int trickLevel, String[] habits) {
+    public RoboCat(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
 
     @Override
-    public Species getSpecies() {
+    public pets.Species getSpecies() {
         return species;
     }
 
     @Override
-    public void setSpecies(Species species) {
+    public void setSpecies(pets.Species species) {
         this.species = species;
     }
 
@@ -75,11 +77,6 @@ public class Dog extends Pet implements Foulable {
 
     @Override
     public void respond() {
-        System.out.printf("Hi, I'm dog - %s\n", this.nickname);
-    }
-
-    @Override
-    public void foul() {
-        System.out.println("Потрібно добре замести сліди...\n");
+        System.out.printf("Hi, I'm robocat - %s\n", this.nickname);
     }
 }

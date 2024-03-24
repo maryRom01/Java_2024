@@ -1,25 +1,27 @@
-package pets;
+package hw6.src.main.java.pets;
 
-public class DomesticCat extends Pet implements Foulable {
-    private Species species;
+import pets.Species;
+
+public class Dog extends pets.Pet implements pets.Foulable {
+    private pets.Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
 
     {
-        this.species = Species.DOMESTIC_CAT;
+        this.species = pets.Species.DOG;
     }
 
-    public DomesticCat() {
+    public Dog() {
         super();
     }
 
-    public DomesticCat(String nickname) {
+    public Dog(String nickname) {
         super(nickname);
     }
 
-    public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
+    public Dog(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
 
@@ -75,7 +77,7 @@ public class DomesticCat extends Pet implements Foulable {
 
     @Override
     public void respond() {
-        System.out.printf("Hi, I'm cat - %s\n", this.nickname);
+        System.out.printf("Hi, I'm dog - %s\n", this.nickname);
     }
 
     @Override

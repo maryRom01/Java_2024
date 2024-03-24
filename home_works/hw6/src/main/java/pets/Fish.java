@@ -1,35 +1,37 @@
-package pets;
+package hw6.src.main.java.pets;
 
-public class RoboCat extends Pet {
-    private Species species;
+import pets.Species;
+
+public class Fish extends pets.Pet {
+    private pets.Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
 
     {
-        this.species = Species.ROBOCAT;
+        this.species = pets.Species.FISH;
     }
 
-    public RoboCat() {
+    public Fish() {
         super();
     }
 
-    public RoboCat(String nickname) {
+    public Fish(String nickname) {
         super(nickname);
     }
 
-    public RoboCat(String nickname, int age, int trickLevel, String[] habits) {
+    public Fish(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
 
     @Override
-    public Species getSpecies() {
+    public pets.Species getSpecies() {
         return species;
     }
 
     @Override
-    public void setSpecies(Species species) {
+    public void setSpecies(pets.Species species) {
         this.species = species;
     }
 
@@ -75,6 +77,6 @@ public class RoboCat extends Pet {
 
     @Override
     public void respond() {
-        System.out.printf("Hi, I'm robocat - %s\n", this.nickname);
+        System.out.printf("Hi, I'm fish - %s\n", this.nickname);
     }
 }

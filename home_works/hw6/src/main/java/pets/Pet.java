@@ -33,7 +33,7 @@ public abstract class Pet {
         this.trickLevel = trickLevel;
         this.habits = habits;
     }
-    public Species getSpecies() {
+    public pets.Species getSpecies() {
         if (species != null) return species;
         else return null;
     }
@@ -41,6 +41,8 @@ public abstract class Pet {
     public void setSpecies(Species species) {
         this.species = species;
     }
+
+    public abstract void setSpecies(pets.Species species);
 
     public String getNickname() {
         return nickname;
