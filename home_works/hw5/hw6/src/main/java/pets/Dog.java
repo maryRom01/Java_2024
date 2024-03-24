@@ -7,19 +7,20 @@ public class Dog extends Pet implements Foulable {
     private int trickLevel;
     private String[] habits;
 
+    {
+        this.species = Species.DOG;
+    }
+
     public Dog() {
         super();
-        this.species = Species.DOG;
     }
 
     public Dog(String nickname) {
         super(nickname);
-        this.species = Species.DOG;
     }
 
     public Dog(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
-        this.species = Species.DOG;
     }
 
     @Override

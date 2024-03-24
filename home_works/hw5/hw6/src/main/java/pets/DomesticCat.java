@@ -7,19 +7,20 @@ public class DomesticCat extends Pet implements Foulable {
     private int trickLevel;
     private String[] habits;
 
+    {
+        this.species = Species.DOMESTIC_CAT;
+    }
+
     public DomesticCat() {
         super();
-        this.species = Species.DOMESTIC_CAT;
     }
 
     public DomesticCat(String nickname) {
         super(nickname);
-        this.species = Species.DOMESTIC_CAT;
     }
 
     public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
-        this.species = Species.DOMESTIC_CAT;
     }
 
     @Override
