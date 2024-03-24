@@ -1,4 +1,4 @@
-public enum Pets {
+public enum Species {
     CAT,
     DOG,
     RABBIT,

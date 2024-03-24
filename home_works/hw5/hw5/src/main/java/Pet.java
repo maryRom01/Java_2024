@@ -1,21 +1,21 @@
 import java.util.Arrays;
 
 public class Pet {
-    private Pets species;
+    private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
 
     public Pet() {
-        this.species = Pets.UNKNOWN;
+        this.species = Species.UNKNOWN;
         this.nickname = "Unknown";
         this.age = 0;
         this.trickLevel = 0;
         this.habits = new String[]{};
     }
 
-    public Pet(Pets species, String nickname) {
+    public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
         this.age = 0;
@@ -23,19 +23,19 @@ public class Pet {
         this.habits = new String[]{};
     }
 
-    public Pet(Pets species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
     }
-    public Pets getSpecies() {
+    public Species getSpecies() {
         if (species != null) return species;
         else return null;
     }
 
-    public void setSpecies(Pets species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 

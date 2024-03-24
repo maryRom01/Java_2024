@@ -1,4 +1,4 @@
-public enum Schedule {
+public enum DayOfWeek {
     MONDAY,
     TUESDAY,
     WEDNESDAY,

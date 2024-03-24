@@ -1,20 +1,20 @@
 public class HappyFamily {
     public static void main(String[] args) {
         System.out.println("Pets: ");
-        Pet petAllProperties = new Pet(Pets.DOG, "Ted", 2, 50, new String[]{"sleep", "eat", "play"});
+        Pet petAllProperties = new Pet(Species.DOG, "Ted", 2, 50, new String[]{"sleep", "eat", "play"});
         petAllProperties.print();
 
         Pet petEmptyConstructor = new Pet();
         petEmptyConstructor.print();
 
-        Pet pet2Properties = new Pet(Pets.CAT, "March");
+        Pet pet2Properties = new Pet(Species.CAT, "March");
         pet2Properties.print();
         System.out.println();
 
         String[][] schedule = new String[2][2];
-        schedule[0][0] = Schedule.MONDAY.toString();
+        schedule[0][0] = DayOfWeek.MONDAY.toString();
         schedule[0][1] = "Work";
-        schedule[1][0] = Schedule.TUESDAY.toString();
+        schedule[1][0] = DayOfWeek.TUESDAY.toString();
         schedule[1][1] = "Pizza party";
 
         //----------------------------------------------------------
@@ -104,10 +104,15 @@ public class HappyFamily {
 
         //----------------------------------------------------------
         System.out.println("Compare pets: ");
-        Pet cat1 = new Pet(Pets.CAT, "Danny", 3, 50, new String[]{"sleep", "play"});
-        Pet cat2 = new Pet(Pets.CAT, "Rex", 7, 90, new String[]{"sleep", "eat"});
-        Pet dog = new Pet(Pets.DOG, "Lilu", 1, 95, new String[]{"walk", "play"});
+        Pet cat1 = new Pet(Species.CAT, "Danny", 3, 50, new String[]{"sleep", "play"});
+        Pet cat2 = new Pet(Species.CAT, "Rex", 7, 90, new String[]{"sleep", "eat"});
+        Pet dog = new Pet(Species.DOG, "Lilu", 1, 95, new String[]{"walk", "play"});
         System.out.println(cat1.equals(cat2));
         System.out.println(cat1.equals(dog));
+
+        //--------------result of overridden finalize()---------------
+//        for (int i = 0; i < 455000; i++) {
+//            Human Brett = new Human("Brett", "Bronx", 1998, 90, petAllProperties, null, null, schedule);
+//        }
     }
 }

@@ -118,19 +118,19 @@ public class HappyFamilyTest {
 
     @Test
     public void describePetHappyPathTrickLevel50Test() {
-        Pet petAllProperties = new Pet(Pets.DOG, "Ted", 2, 50, new String[]{"sleep", "eat", "play"});
+        Pet petAllProperties = new Pet(Species.DOG, "Ted", 2, 50, new String[]{"sleep", "eat", "play"});
         Human Raimond = new Human("Raimond", "Bronx", 1998, 90, petAllProperties, null, null, null);
         String actualResult = Raimond.describePet();
-        String expectedResult = String.format("У мене є %s, йому %s років, він майже не хитрий\n", Pets.DOG, petAllProperties.getAge());
+        String expectedResult = String.format("У мене є %s, йому %s років, він майже не хитрий\n", Species.DOG, petAllProperties.getAge());
         assertEquals(expectedResult, actualResult);
     }
 
     @Test
     public void describePetHappyPathTrickLevel90Test() {
-        Pet petAllProperties = new Pet(Pets.DOG, "Ted", 2, 90, new String[]{"sleep", "eat", "play"});
+        Pet petAllProperties = new Pet(Species.DOG, "Ted", 2, 90, new String[]{"sleep", "eat", "play"});
         Human Raimond = new Human("Raimond", "Bronx", 1998, 90, petAllProperties, null, null, null);
         String actualResult = Raimond.describePet();
-        String expectedResult = String.format("У мене є %s, йому %s років, він дуже хитрий\n", Pets.DOG, petAllProperties.getAge());
+        String expectedResult = String.format("У мене є %s, йому %s років, він дуже хитрий\n", Species.DOG, petAllProperties.getAge());
         assertEquals(expectedResult, actualResult);
     }
 

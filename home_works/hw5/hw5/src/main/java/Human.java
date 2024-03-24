@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Human {
     private String name;
     private String surname;
@@ -135,7 +133,7 @@ public class Human {
     public String describePet() {
         String description;
         String trickiness;
-        if (!(pet == null || pet.getSpecies() == Pets.UNKNOWN)) {
+        if (!(pet == null || pet.getSpecies() == Species.UNKNOWN)) {
             if (pet.getTrickLevel() <= 50) {
                 trickiness = "майже не хитрий";
             } else trickiness = "дуже хитрий";
@@ -186,5 +184,10 @@ public class Human {
         return String.format("Human{name='%s', surname='%s', year=%s, iq=%s, mother='%s %s', father='%s %s' " +
                 "pet=%s}",
                 this.name, this.surname, this.year, this.iq, motherName, motherSurname, fatherName, fatherSurname, pet);
+    }
+
+    @Override
+    public void finalize() throws Throwable {
+        System.err.println(this);
     }
 }
