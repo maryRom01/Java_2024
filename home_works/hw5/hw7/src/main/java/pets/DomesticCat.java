@@ -1,5 +1,7 @@
 package pets;
 
+import interfaces.Foulable;
+
 import java.util.Set;
 
 public class DomesticCat extends Pet implements Foulable {

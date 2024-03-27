@@ -1,4 +1,4 @@
-package pets;
+package interfaces;
 
 public interface Foulable {
 
