@@ -1,11 +1,17 @@
 package humans;
 
+import enums.DayOfWeek;
+
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
 public abstract class Human {
     private String name;
     private String surname;
     private int year;
     private int iq;
-    private String[][] schedule;
+    private SortedMap<DayOfWeek, String> schedule;
     private Family family;
 
     public Human() {
@@ -13,7 +19,7 @@ public abstract class Human {
         this.surname = "Unknown";
         this.year = 0;
         this.iq = 0;
-        this.schedule = new String[1][1];
+        this.schedule = new TreeMap<>();
     }
 
     public Human(String name, String surname, int year) {
@@ -21,10 +27,10 @@ public abstract class Human {
         this.surname = surname;
         this.year = year;
         this.iq = 0;
-        this.schedule = new String[1][1];
+        this.schedule = new TreeMap<>();
     }
 
-    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, SortedMap<DayOfWeek, String> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -32,7 +38,7 @@ public abstract class Human {
         if (schedule != null) {
             this.schedule = schedule;
         } else {
-            this.schedule = new String[][]{{},{}};
+            this.schedule = new TreeMap<>();
         }
     }
 
@@ -68,11 +74,11 @@ public abstract class Human {
         this.iq = iq;
     }
 
-    public String[][] getSchedule() {
+    public Map<DayOfWeek, String> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String[][] schedule) {
+    public void setSchedule(SortedMap<DayOfWeek, String> schedule) {
         this.schedule = schedule;
     }
 
@@ -88,16 +94,19 @@ public abstract class Human {
         System.out.println(this);
     }
 
-//    public void printSchedule() {
-//        System.out.print("Schedule is: ");
-//        if (this.getSchedule()[0].length == 0 || this.getSchedule() == null) {
-//            System.out.println("No schedule");
-//        } else {
-//            for (int i = 0; i < this.schedule.length; i++) {
-//                System.out.printf("%s - %s; ", this.schedule[i][0], this.schedule[i][1]);
-//            }
-//        }
-//    }
+    public void printSchedule() {
+        System.out.print("Schedule is: ");
+        if (this.getSchedule().isEmpty()) {
+            System.out.println("No schedule");
+        } else {
+            //System.out.printf("%s; ", this.schedule.entrySet());
+            for(Map.Entry<DayOfWeek, String> e: this.getSchedule().entrySet()) {
+                DayOfWeek day = e.getKey();
+                String action = e.getValue();
+                System.out.printf("%s - %s; ", day, action);
+            }
+        }
+    }
 
     @Override
     public String toString() {

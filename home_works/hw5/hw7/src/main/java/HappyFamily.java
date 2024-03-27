@@ -1,8 +1,10 @@
+import enums.DayOfWeek;
+import humans.Human;
+import humans.Man;
 import pets.Dog;
 import pets.Pet;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class HappyFamily {
     public static void main(String[] args) {
@@ -14,5 +16,13 @@ public class HappyFamily {
         petHabits.add("play");
         Pet dog = new Dog("Teddy", 2, 55, petHabits);
         System.out.println(dog.getHabits());
+
+        Human man = new Man("Mark", "Bronx", 1995);
+        SortedMap<DayOfWeek, String> schedule = new TreeMap<>();
+        schedule.put(DayOfWeek.MONDAY, "work");
+        schedule.put(DayOfWeek.TUESDAY, "meet friends");
+        schedule.put(DayOfWeek.WEDNESDAY, "visit parents");
+        man.setSchedule(schedule);
+        man.printSchedule();
     }
 }

@@ -1,11 +1,14 @@
 package humans;
 
+import enums.DayOfWeek;
+import java.util.SortedMap;
+
 public final class Woman extends Human {
     private String name;
     private String surname;
     private int year;
     private int iq;
-    private String[][] schedule;
+    private SortedMap<DayOfWeek, String> schedule;
     private Family family;
 
     public Woman() {
@@ -16,7 +19,7 @@ public final class Woman extends Human {
         super(name, surname, year);
     }
 
-    public Woman(String name, String surname, int year, int iq, String[][] schedule) {
+    public Woman(String name, String surname, int year, int iq, SortedMap<DayOfWeek, String> schedule) {
         super(name, surname, year, iq, schedule);
     }
 

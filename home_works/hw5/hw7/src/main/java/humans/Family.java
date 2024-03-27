@@ -5,6 +5,7 @@ import pets.Species;
 
 import java.time.Year;
 import java.util.Arrays;
+import java.util.TreeMap;
 
 public class Family implements HumanCreator {
     private Human mother;
@@ -133,10 +134,10 @@ public class Family implements HumanCreator {
         String finalName = randomName.substring(0, 1) + randomName.substring(1).toLowerCase();
         switch (sex) {
             case 0: child = new Woman(finalName, this.getFather().getSurname(), Year.now().getValue(),
-                    (this.getFather().getIq() + this.getMother().getIq())/2, new String[1][1]);
+                    (this.getFather().getIq() + this.getMother().getIq())/2, new TreeMap<>());
                     break;
             case 1: child = new Man(finalName, this.getFather().getSurname(), Year.now().getValue(),
-                    (this.getFather().getIq() + this.getMother().getIq())/2, new String[1][1]);
+                    (this.getFather().getIq() + this.getMother().getIq())/2, new TreeMap<>());
                     break;
             default: child = new Woman();
         }
