@@ -1,13 +1,15 @@
 package pets;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Pet {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private Set<String> habits;
 
     {
         this.species = Species.UNKNOWN;
@@ -17,17 +19,17 @@ public abstract class Pet {
         this.nickname = "Unknown";
         this.age = 0;
         this.trickLevel = 0;
-        this.habits = new String[]{};
+        this.habits = new HashSet<>();
     }
 
     public Pet(String nickname) {
         this.nickname = nickname;
         this.age = 0;
         this.trickLevel = 0;
-        this.habits = new String[]{};
+        this.habits = new HashSet<>();
     }
 
-    public Pet(String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(String nickname, int age, int trickLevel, Set<String> habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -62,11 +64,11 @@ public abstract class Pet {
         this.trickLevel = trickLevel;
     }
 
-    public String[] getHabits() {
+    public Set<String> getHabits() {
         return habits;
     }
 
-    public void setHabits(String[] habits) {
+    public void setHabits(Set<String> habits) {
         this.habits = habits;
     }
 
@@ -84,7 +86,7 @@ public abstract class Pet {
     public String toString() {
         String habits = "Unknown";
         if (this.habits != null) {
-            habits = Arrays.toString(this.habits);
+            habits = this.habits.toString();
         }
         return String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}", this.species.toString().toLowerCase(),
                 this.nickname, this.age, this.trickLevel, habits);

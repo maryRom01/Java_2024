@@ -1,11 +1,13 @@
 package pets;
 
+import java.util.Set;
+
 public class RoboCat extends Pet {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private Set<String> habits;
 
     {
         this.species = Species.ROBOCAT;
@@ -19,7 +21,7 @@ public class RoboCat extends Pet {
         super(nickname);
     }
 
-    public RoboCat(String nickname, int age, int trickLevel, String[] habits) {
+    public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 

@@ -1,11 +1,13 @@
 package pets;
 
+import java.util.Set;
+
 public class Dog extends Pet implements Foulable {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private Set<String> habits;
 
     {
         this.species = Species.DOG;
@@ -19,7 +21,7 @@ public class Dog extends Pet implements Foulable {
         super(nickname);
     }
 
-    public Dog(String nickname, int age, int trickLevel, String[] habits) {
+    public Dog(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 
