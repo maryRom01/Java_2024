@@ -7,19 +7,21 @@ import pets.Pet;
 import pets.Species;
 
 import java.time.Year;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.TreeMap;
 
 public class Family implements HumanCreator {
     private Human mother;
     private Human father;
-    private Human[] children;
+    private List<Human> children;
     private Pet[] pets;
 
     public Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
-        this.children = new Human[]{};
+        this.children = new ArrayList<>();
         this.pets = new Pet[]{};
         this.mother.setFamily(this);
         this.father.setFamily(this);
@@ -41,11 +43,11 @@ public class Family implements HumanCreator {
         this.father = father;
     }
 
-    public Human[] getChildren() {
+    public List<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(Human[] children) {
+    public void setChildren(List<Human> children) {
         this.children = children;
     }
 
@@ -59,32 +61,23 @@ public class Family implements HumanCreator {
 
     public void addChild(Human child) {
         if (this.father != null) {
-            Human[] updatedChildrenList = Arrays.copyOf(this.children, this.children.length + 1);
-            updatedChildrenList[updatedChildrenList.length - 1] = child;
-            setChildren(updatedChildrenList);
+            this.children.add(child);
             child.setFamily(this);
         }
     }
 
     public void deleteChild(int index) {
-        if (this.getChildren().length != 0 && index < this.getChildren().length) {
-            Human[] updatedChildrenList = new Human[this.children.length - 1];
-            int k = 0;
-            for (int i = 0; i < this.children.length; i++) {
-                if (i != index) {
-                    updatedChildrenList[k++] = this.children[i];
-                }
-            }
-            this.setChildren(updatedChildrenList);
+        if (!this.getChildren().isEmpty() && index < this.getChildren().size()) {
+            this.children.remove(index);
         }
     }
 
     public int countFamily() {
         int countByDefault = 2;
-        if (this.children.length == 0) {
+        if (this.children.isEmpty()) {
             return countByDefault;
         } else {
-            return countByDefault + this.children.length;
+            return countByDefault + this.children.size();
         }
     }
 
@@ -108,8 +101,8 @@ public class Family implements HumanCreator {
     @Override
     public String toString() {
         if (this.mother == null || this.father == null) {
-            return String.format("Mother: %s, father: %s, children: %s", "Unknown", "Unknown", Arrays.toString(this.children));
-        } else return String.format("Mother: %s, father: %s, children: %s", this.mother.toString(), this.father.toString(), Arrays.toString(this.children));
+            return String.format("Mother: %s, father: %s, children: %s", "Unknown", "Unknown", this.children.toString());
+        } else return String.format("Mother: %s, father: %s, children: %s", this.mother.toString(), this.father.toString(), this.children.toString());
     }
 
     private int getSex() {
