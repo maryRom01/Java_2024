@@ -9,20 +9,8 @@ public class Fish extends Pet {
     private int trickLevel;
     private Set<String> habits;
 
-    {
-        this.species = Species.FISH;
-    }
-
-    public Fish() {
-        super();
-    }
-
-    public Fish(String nickname) {
-        super(nickname);
-    }
-
     public Fish(String nickname, int age, int trickLevel, Set<String> habits) {
-        super(nickname, age, trickLevel, habits);
+        super(Species.FISH, nickname, age, trickLevel, habits);
     }
 
     @Override

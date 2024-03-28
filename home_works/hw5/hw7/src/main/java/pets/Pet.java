@@ -22,6 +22,14 @@ public abstract class Pet {
         this.habits = new HashSet<>();
     }
 
+    public Pet(Species species) {
+        this.species = species;
+        this.nickname = "Unknown";
+        this.age = 0;
+        this.trickLevel = 0;
+        this.habits = new HashSet<>();
+    }
+
     public Pet(String nickname) {
         this.nickname = nickname;
         this.age = 0;
@@ -35,6 +43,15 @@ public abstract class Pet {
         this.trickLevel = trickLevel;
         this.habits = habits;
     }
+
+    public Pet(Species species, String nickname, int age, int trickLevel, Set<String> habits) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
+        this.habits = habits;
+    }
+
     public Species getSpecies() {
         if (species != null) return species;
         else return null;
@@ -85,7 +102,7 @@ public abstract class Pet {
     @Override
     public String toString() {
         String habits = "Unknown";
-        if (this.habits != null) {
+        if (!this.habits.isEmpty()) {
             habits = this.habits.toString();
         }
         return String.format("%s{nickname='%s', age=%s, trickLevel=%s, habits=%s}", this.species.toString().toLowerCase(),

@@ -9,20 +9,9 @@ public class RoboCat extends Pet {
     private int trickLevel;
     private Set<String> habits;
 
-    {
-        this.species = Species.ROBOCAT;
-    }
-
-    public RoboCat() {
-        super();
-    }
-
-    public RoboCat(String nickname) {
-        super(nickname);
-    }
 
     public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
-        super(nickname, age, trickLevel, habits);
+        super(Species.ROBOCAT, nickname, age, trickLevel, habits);
     }
 
     @Override

@@ -7,22 +7,19 @@ import pets.Pet;
 import pets.Species;
 
 import java.time.Year;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Family implements HumanCreator {
     private Human mother;
     private Human father;
     private List<Human> children;
-    private Pet[] pets;
+    private Set<Pet> pets;
 
     public Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
         this.children = new ArrayList<>();
-        this.pets = new Pet[]{};
+        this.pets = new HashSet<>();
         this.mother.setFamily(this);
         this.father.setFamily(this);
     }
@@ -51,11 +48,11 @@ public class Family implements HumanCreator {
         this.children = children;
     }
 
-    public Pet[] getPets() {
+    public Set<Pet> getPets() {
         return pets;
     }
 
-    public void setPets(Pet[] pets) {
+    public void setPets(Set<Pet> pets) {
         this.pets = pets;
     }
 
@@ -81,18 +78,18 @@ public class Family implements HumanCreator {
         }
     }
 
-    public String describePet(int index) {
-        Pet pet = this.pets[index];
+    public void describePet(int index) {
+        Pet pet = (Pet) this.pets.toArray()[index];
+        System.out.println("Pet: " + pet);
         String description;
         String trickiness;
         if (!(pet == null || pet.getSpecies() == Species.UNKNOWN)) {
             if (pet.getTrickLevel() <= 50) {
                 trickiness = "майже не хитрий";
             } else trickiness = "дуже хитрий";
-            description = String.format("У мене є %s, йому %s років, він %s\n", pet.getSpecies(), pet.getAge(), trickiness);
+            description = String.format("У мене є %s, йому %s років, він %s\n", pet.getSpecies().toString().toLowerCase(), pet.getAge(), trickiness);
         } else description = "No pets";
         System.out.println(description);
-        return description;
     }
 
     public void print() {
