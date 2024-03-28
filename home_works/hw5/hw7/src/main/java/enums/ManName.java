@@ -1,4 +1,4 @@
-package humans;
+package enums;
 
 public enum ManName {
     ADRIAN(0),

@@ -1,5 +1,8 @@
 package humans;
 
+import enums.ManName;
+import enums.WomanName;
+import interfaces.HumanCreator;
 import pets.Pet;
 import pets.Species;
 
