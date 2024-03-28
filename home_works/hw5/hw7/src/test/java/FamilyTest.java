@@ -14,7 +14,7 @@ public class FamilyTest {
         Human man = new Man("Mark", "Bronx", 1995);
         Family family = new Family(woman, man);
         Human child = family.bornChild();
-        int children = family.getChildren().length;
+        int children = family.getChildren().size();
         assertEquals("verify the length of children array", children, 1);
     }
 
@@ -25,7 +25,7 @@ public class FamilyTest {
         Family family = new Family(woman, man);
         family.bornChild();
         family.bornChild();
-        int children = family.getChildren().length;
+        int children = family.getChildren().size();
         assertEquals("verify the length of children array", children, 2);
     }
 
@@ -37,7 +37,7 @@ public class FamilyTest {
         family.bornChild();
         family.bornChild();
         family.deleteChild(0);
-        int children = family.getChildren().length;
+        int children = family.getChildren().size();
         assertEquals("verify the length of children array", children, 1);
     }
 
@@ -48,7 +48,7 @@ public class FamilyTest {
         Family family = new Family(woman, man);
         family.bornChild();
         family.deleteChild(0);
-        int children = family.getChildren().length;
+        int children = family.getChildren().size();
         assertEquals("verify the length of children array", children, 0);
     }
 
@@ -58,7 +58,7 @@ public class FamilyTest {
         Human man = new Man("Mark", "Bronx", 1995);
         Family family = new Family(woman, man);
         family.deleteChild(0);
-        int children = family.getChildren().length;
+        int children = family.getChildren().size();
         assertEquals("verify the length of children array", children, 0);
     }
 
